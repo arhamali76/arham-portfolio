@@ -32,6 +32,7 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
   padding: 18px 60px;
   background: rgba(10,22,40,0.88);
   backdrop-filter: blur(14px);
@@ -40,8 +41,10 @@ nav {
 .nav-logo {
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px; color: var(--teal); letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links { display: flex; gap: 36px; list-style: none; flex-wrap: nowrap; }
 .nav-links a {
   font-size: 13px; color: var(--grey); text-decoration: none;
   font-weight: 500; letter-spacing: 0.04em;
@@ -405,4 +408,16 @@ footer p { font-size: 12.5px; color: var(--grey2); }
   .stats-bar { padding: 28px 24px; gap: 32px; flex-wrap: wrap; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   footer { flex-direction: column; gap: 8px; padding: 20px 24px; text-align: center; }
+}
+
+@media (max-width: 640px) {
+  nav { flex-wrap: nowrap; padding: 14px 16px; gap: 12px; }
+  .nav-logo { font-size: 12px; }
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 11px; }
+}
+
+@media (max-width: 460px) {
+  .nav-links { gap: 8px; }
+  .nav-links a { font-size: 10px; }
 }
